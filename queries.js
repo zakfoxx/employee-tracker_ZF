@@ -1,11 +1,25 @@
-const db = require("./connection.js");
-function viewAllDepartments() {
-  console.log("Working until here");
-  console.log(`\n\n\n----------------------\n\n\n`);
-
+const db = require("./config/connection.js");
+function viewAllDepartments(next) {
   db.query("SELECT * FROM department", function (error, results) {
-    console.log(`Yessir we workin \n\n\n\n`);
-    console.log(results);
+    console.table(results);
+    next();
   });
 }
-module.exports = viewAllDepartments;
+function viewAllRoles(next) {
+  db.query("SELECT * FROM role", function (error, results) {
+    console.table(results);
+    next();
+  });
+}
+
+function viewAllEmployees(next) {
+  db.query("SELECT * FROM employee", function (error, results) {
+    console.table(results);
+    next();
+  });
+}
+module.exports = {
+  viewAllDepartments,
+  viewAllRoles,
+  viewAllEmployees,
+};
