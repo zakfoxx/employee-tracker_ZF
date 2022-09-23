@@ -38,7 +38,19 @@ function actionChoice() {
         case "View All Employees":
           queries.viewAllEmployees(actionChoice);
           break;
-        
+
+        case "Add A Department":
+          queries.addDepartment(actionChoice);
+          break;
+
+        case "Add A Role":
+          queries.addRole(actionChoice);
+          break;
+
+        case "Add An Employee":
+          queries.addEmployee(actionChoice);
+          break;
+
         default:
           console.log("Nothing chosen");
           break;
